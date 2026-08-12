@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>環球走跳2026 - GoGo行李箱專屬版</title>
+  <title>環球走跳2026 - 加拿大洛磯山13日</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
   
@@ -171,7 +171,7 @@
   <div id="root"></div>
   <div id="booklet-root"></div>
 
-  <!-- Icon Generator Script (生成 iOS 高清圖示) -->
+  <!-- Icon Generator Script -->
   <script>
     window.addEventListener('load', function() {
       const svgString = `
@@ -240,7 +240,6 @@
         }
     };
 
-    // 專屬 Go Go 行李箱女孩 Icon Component
     const AppIcon = ({ size = 40 }) => (
       <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 1024 1024" className="rounded-xl border-2 border-white/20 shadow-md">
         <rect width="1024" height="1024" fill="#FFD1DC" />
@@ -314,15 +313,97 @@
       Edit: (p) => <Icon {...p}><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></Icon>,
       Word: (p) => <Icon {...p}><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></Icon>,
       Delete: (p) => <Icon {...p}><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/><line x1="18" x2="12" y1="9" y2="15"/><line x1="12" x2="18" y1="9" y2="15"/></Icon>,
-      Sparkles: (p) => <Icon {...p}><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M9 5H5"/><path d="M19 17v4"/><path d="M15 19h4"/></Icon>
+      Sparkles: (p) => <Icon {...p}><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M9 5H5"/><path d="M19 17v4"/><path d="M15 19h4"/></Icon>,
+      ArrowRightLeft: (p) => <Icon {...p}><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></Icon>
     };
 
-    const INITIAL_ITINERARY = [];
+    const INITIAL_ITINERARY = [
+      { id: 1, date: '2026-08-14', weekday: '三', content: '抵達溫哥華', transport: '飛機/機場接送', stay: '溫哥華市區 (自理)', food: '', highlights: '晚上抵達溫哥華國際機場 (YVR)，搭車前往市區飯店辦理入住，休息調適時差。', photo: null, schedule: [
+          { id: 101, time: '19:00', category: '交通', activity: '抵達溫哥華國際機場 (YVR)', note: '準備通關與領行李' },
+          { id: 102, time: '21:00', category: '住宿', activity: '市區飯店 Check-in', note: '早點休息調適時差' }
+      ]},
+      { id: 2, date: '2026-08-15', weekday: '四', content: '溫哥華市區精華', transport: '大眾運輸/步行', stay: '溫哥華市區 (自理)', food: '', highlights: '史丹利公園騎單車、固蘭湖島吃美食、煤氣鎮看百年蒸汽鐘。', photo: null, schedule: [
+          { id: 201, time: '09:30', category: '景點', activity: '史丹利公園 (Stanley Park)', note: '騎單車或漫步' },
+          { id: 202, time: '12:30', category: '吃飯', activity: '固蘭湖島 (Granville Island)', note: '逛公眾市場吃美食' },
+          { id: 203, time: '17:00', category: '景點', activity: '煤氣鎮 (Gastown)', note: '看百年蒸汽鐘' },
+          { id: 204, time: '18:30', category: '吃飯', activity: '煤氣鎮周邊晚餐', note: '享受市區夜景' }
+      ]},
+      { id: 3, date: '2026-08-16', weekday: '五', content: '洛磯山 Day 1', transport: '旅遊巴士', stay: '灰熊鎮 (團費包含)', food: '', highlights: '溫哥華出發，經基隆拿品嚐冰酒，賞水怪湖，傍晚抵達灰熊鎮。', photo: null, schedule: [
+          { id: 301, time: '07:00', category: '交通', activity: '溫哥華指定地點集合', note: '洛磯山脈5日遊出發！' },
+          { id: 302, time: '11:00', category: '景點', activity: '基隆拿 (Kelowna)', note: '參觀酒莊/品嚐冰酒' },
+          { id: 303, time: '14:00', category: '景點', activity: '水怪湖 (Okanagan Lake)', note: '尋找傳說中的水怪' },
+          { id: 304, time: '18:00', category: '住宿', activity: '抵達灰熊鎮 (Revelstoke)', note: '辦理入住與晚餐' }
+      ]},
+      { id: 4, date: '2026-08-17', weekday: '六', content: '洛磯山 Day 2', transport: '旅遊巴士', stay: '班芙市中心 (團費包含)', food: '', highlights: '夢蓮湖如詩如畫，搭乘硫磺山纜車俯瞰全景，弓河瀑布與班芙小鎮漫步。', photo: null, schedule: [
+          { id: 401, time: '08:00', category: '交通', activity: '經羅渣士坳 (Rogers Pass)', note: '沿途欣賞美景' },
+          { id: 402, time: '10:30', category: '景點', activity: '夢蓮湖 (Moraine Lake)', note: '欣賞如詩如畫的十峰谷' },
+          { id: 403, time: '13:00', category: '景點', activity: '搭乘「硫磺山纜車」', note: '俯瞰班芙全景' },
+          { id: 404, time: '15:30', category: '景點', activity: '弓河瀑布 (Bow Falls)', note: '瑪麗蓮夢露電影取景地' },
+          { id: 405, time: '17:00', category: '逛街', activity: '班芙小鎮漫步', note: '自由活動與晚餐' }
+      ]},
+      { id: 5, date: '2026-08-18', weekday: '日', content: '洛磯山 Day 3', transport: '旅遊巴士', stay: '積仕柏市中心 (團費包含)', food: '', highlights: '露易斯湖堡壘餐廳午餐，搭乘巨型雪車登亞達巴斯加冰河，體驗冰川玻璃橋。', photo: null, schedule: [
+          { id: 501, time: '09:00', category: '景點', activity: '露易斯湖 (Lake Louise)', note: '洛磯山脈的藍色寶石' },
+          { id: 502, time: '12:00', category: '吃飯', activity: '露易斯湖堡壘餐廳', note: '享用精緻午餐' },
+          { id: 503, time: '14:30', category: '景點', activity: '哥倫比亞冰川', note: '搭乘巨型雪車登亞達巴斯加冰河' },
+          { id: 504, time: '16:00', category: '景點', activity: '冰川玻璃橋', note: '走上280米高空步道' },
+          { id: 505, time: '18:30', category: '住宿', activity: '積仕柏市 (Jasper) 入住', note: '自由活動' }
+      ]},
+      { id: 6, date: '2026-08-19', weekday: '一', content: '洛磯山 Day 4', transport: '旅遊巴士', stay: '太陽峰度假村 (團費包含)', food: '', highlights: '積仕柏國家公園，深5.5公里的瑪蓮峽谷，觀賞200公尺高的斯帕哈瀑布。', photo: null, schedule: [
+          { id: 601, time: '09:00', category: '景點', activity: '積仕柏國家公園自由活動', note: '享受晨間自然氣息' },
+          { id: 602, time: '11:00', category: '景點', activity: '瑪蓮峽谷 (Maligne Canyon)', note: '探索5.5公里深峽谷' },
+          { id: 603, time: '13:00', category: '吃飯', activity: '維蒙鎮 (Valemount)', note: '享用午餐' },
+          { id: 604, time: '15:30', category: '景點', activity: '斯帕哈瀑布 (Spahats Falls)', note: '觀賞200公尺高火山石瀑布' },
+          { id: 605, time: '18:00', category: '住宿', activity: '太陽峰度假村 (Sun Peaks)', note: '度假村漫步與休息' }
+      ]},
+      { id: 7, date: '2026-08-20', weekday: '二', content: '洛磯山 Day 5', transport: '旅遊巴士', stay: '溫哥華市區 (自理)', food: '', highlights: '甘露市參觀花旗蔘場，願望鎮（電影第一滴血拍攝地），傍晚返回溫哥華。', photo: null, schedule: [
+          { id: 701, time: '09:00', category: '景點', activity: '太陽峰自由活動', note: '晨間休閒' },
+          { id: 702, time: '11:30', category: '景點', activity: '甘露市 (Kamloops)', note: '參觀花旗蔘場' },
+          { id: 703, time: '14:30', category: '景點', activity: '願望鎮 (Hope)', note: '電影《第一滴血》拍攝地' },
+          { id: 704, time: '18:00', category: '交通', activity: '返回溫哥華市區', note: '結束5日洛磯山之旅' }
+      ]},
+      { id: 8, date: '2026-08-21', weekday: '三', content: '市區休閒/自由行', transport: '大眾運輸/步行', stay: '溫哥華市區 (自理)', food: '', highlights: '長途旅行後睡到自然醒，下午去 Robson Street 購物，英吉利灣喝咖啡。', photo: null, schedule: [
+          { id: 801, time: '10:30', category: '彈性', activity: '睡到自然醒', note: '長途旅行後放鬆' },
+          { id: 802, time: '12:00', category: '逛街', activity: 'Robson Street / CF Pacific Centre', note: '市區購物採買' },
+          { id: 803, time: '15:30', category: '景點', activity: '英吉利灣 (English Bay)', note: '喝咖啡看海放空' },
+          { id: 804, time: '18:00', category: '吃飯', activity: '市區晚餐', note: '尋找溫哥華美食' }
+      ]},
+      { id: 9, date: '2026-08-22', weekday: '四', content: '北溫自然行', transport: '公車/接駁車', stay: '溫哥華市區 (自理)', food: '', highlights: '挑戰卡皮拉諾吊橋公園，搭纜車上格勞斯山看風景與棕熊。', photo: null, schedule: [
+          { id: 901, time: '09:30', category: '景點', activity: '卡皮拉諾吊橋公園', note: '挑戰高空吊橋與樹冠步道' },
+          { id: 902, time: '12:30', category: '吃飯', activity: '北溫周邊午餐', note: '補充體力' },
+          { id: 903, time: '14:00', category: '景點', activity: '格勞斯山 (Grouse Mountain)', note: '搭纜車上山看風景與棕熊' },
+          { id: 904, time: '18:00', category: '交通', activity: '返回溫哥華市區', note: '準備明日跳島' }
+      ]},
+      { id: 10, date: '2026-08-23', weekday: '五', content: '維多利亞 Day 1', transport: '渡輪/旅遊巴士', stay: '維多利亞 (團費包含)', food: '', highlights: '搭乘卑詩渡輪，維多利亞市區巡禮（省議會/內港），下午漫步寶翠花園。', photo: null, schedule: [
+          { id: 1001, time: '07:00', category: '交通', activity: '搭乘卑詩渡輪', note: '前往溫哥華島' },
+          { id: 1002, time: '10:30', category: '景點', activity: '維多利亞市區巡禮', note: '唐人街、省議會、比根山公園' },
+          { id: 1003, time: '14:00', category: '景點', activity: '寶翠花園 (Butchart Gardens)', note: '欣賞全球十大花園' },
+          { id: 1004, time: '15:30', category: '吃飯', activity: '寶翠花園下午茶', note: '自費享受優雅時光' },
+          { id: 1005, time: '18:00', category: '住宿', activity: '維多利亞市區入住', note: '欣賞內港夜景' }
+      ]},
+      { id: 11, date: '2026-08-24', weekday: '六', content: '維多利亞 Day 2', transport: '旅遊巴士/渡輪', stay: '溫哥華市區 (自理)', food: '', highlights: '瑪拉哈特天空步道，芝美尼藝術壁畫，傍晚搭船返回溫哥華。', photo: null, schedule: [
+          { id: 1101, time: '09:30', category: '景點', activity: '瑪拉哈特天空步道', note: '10層高螺旋塔與刺激滑梯' },
+          { id: 1102, time: '13:00', category: '景點', activity: '芝美尼 (Chemainus)', note: '欣賞在地藝術壁畫' },
+          { id: 1103, time: '15:30', category: '交通', activity: '乃拉磨 (Nanaimo)', note: '搭乘渡輪返回' },
+          { id: 1104, time: '18:30', category: '住宿', activity: '抵達溫哥華市區', note: '最後一晚市區住宿' }
+      ]},
+      { id: 12, date: '2026-08-25', weekday: '日', content: '準備返台', transport: 'SkyTrain/計程車', stay: '機場候機', food: '', highlights: '列治文吃亞洲美食，採買伴手禮。晚上整理行囊，深夜前往 YVR 機場。', photo: null, schedule: [
+          { id: 1201, time: '10:30', category: '吃飯', activity: '列治文 (Richmond)', note: '品嚐道地亞洲美食' },
+          { id: 1202, time: '14:00', category: '逛街', activity: '溫哥華市區/超市', note: '採買楓糖、冰酒等伴手禮' },
+          { id: 1203, time: '19:00', category: '吃飯', activity: '惜別晚餐', note: '整理行囊準備回程' },
+          { id: 1204, time: '22:30', category: '交通', activity: '出發前往 YVR 機場', note: '準備辦理深夜登機手續' }
+      ]},
+      { id: 13, date: '2026-08-26', weekday: '一', content: '凌晨班機返台', transport: '飛機', stay: '機上', food: '', highlights: '凌晨班機起飛，結束美好的加拿大西岸之旅。', photo: null, schedule: [
+          { id: 1301, time: '01:00', category: '交通', activity: '凌晨班機起飛', note: '離開溫哥華' },
+          { id: 1302, time: '12:00', category: '彈性', activity: '機上休息', note: '跨越國際換日線' },
+          { id: 1303, time: '18:00', category: '交通', activity: '抵達台北', note: '結束美好加拿大之旅' }
+      ]}
+    ];
+
     const INITIAL_SHOPPING = [];
     const INITIAL_PACKING_CATEGORIES = ['重要證件 & 隨身', '洗漱 & 護理', '醫藥 & 保健', '衣物 & 穿搭', '電子 & 雜物'];
-    const INITIAL_PACKING_LIST = [{ id: 101, category: '重要證件 & 隨身', item: '護照 / 簽證', checked: false }, { id: 102, category: '重要證件 & 隨身', item: '機票 / 憑證', checked: false }, { id: 103, category: '重要證件 & 隨身', item: '錢包 (現金/卡)', checked: false }, { id: 104, category: '重要證件 & 隨身', item: '行動電源', checked: false }];
-    const INITIAL_PAYMENT_METHODS = ['現金', '信用卡(海外高回饋)', 'Apple Pay', 'Google Pay'];
-    const INITIAL_BOOKING_PLATFORMS = ['現場', 'Agoda', 'Booking', '官網', 'Airbnb', 'Expedia'];
+    const INITIAL_PACKING_LIST = [{ id: 101, category: '重要證件 & 隨身', item: '護照 / eTA簽證', checked: false }, { id: 102, category: '重要證件 & 隨身', item: '機票 / 憑證', checked: false }, { id: 103, category: '重要證件 & 隨身', item: '信用卡(多備幾張)', checked: false }, { id: 501, category: '衣物 & 穿搭', item: '防風保暖外套(冰川用)', checked: false }, { id: 502, category: '衣物 & 穿搭', item: '好走的運動/健走鞋', checked: false }];
+    const INITIAL_PAYMENT_METHODS = ['現金(CAD)', '信用卡(海外高回饋)', 'Apple Pay', 'Google Pay'];
+    const INITIAL_BOOKING_PLATFORMS = ['旅行團', 'Agoda', 'Booking', '官網', 'Airbnb', 'Expedia'];
     const CATEGORIES = ['🍜 飲食', '🚃 交通', '🏨 住宿', '🛍️ 購物', '🎫 門票', '📝 其他'];
     const SCHEDULE_CATEGORIES = [{ name: '景點', color: '#00704A' }, { name: '吃飯', color: '#8B4513' }, { name: '逛街', color: '#2C3E50' }, { name: '交通', color: '#546E7A' }, { name: '住宿', color: '#34495E' }, { name: '彈性', color: '#78909C' }];
     const CITIES = ['溫哥華', '多倫多', '蒙特婁', '卡加利', '洛磯山脈', '維多利亞', '其他'];
@@ -380,11 +461,13 @@
       const [packingCategories, setPackingCategories] = useState(() => loadState('crab_packing_cats_global', INITIAL_PACKING_CATEGORIES));
       const [paymentMethods, setPaymentMethods] = useState(() => loadState('crab_methods_global', INITIAL_PAYMENT_METHODS));
       const [bookingPlatforms, setBookingPlatforms] = useState(() => loadState('crab_platforms_global', INITIAL_BOOKING_PLATFORMS));
-      const [budgetSettings, setBudgetSettings] = useState(() => loadState('crab_budget_global', { totalTWD: 100000, startDate: '', rates: { CAD_TWD: 23.5, USD_TWD: 32.5, TWD_TWD: 1 } }));
+      const [budgetSettings, setBudgetSettings] = useState(() => loadState('crab_budget_global', { totalTWD: 150000, startDate: '2026-08-14', rates: { CAD_TWD: 23.5, USD_TWD: 32.5, TWD_TWD: 1 } }));
       
       const [memos, setMemos] = useState(() => loadState('crab_memo_list_global', null) || [
-          { id: 1, text: '記得申請 eTA / 簽證！', photo: null, column: 'left' },
-          { id: 2, text: '去露易絲湖拍照', photo: null, column: 'right' }
+          { id: 1, text: '8/16 & 8/23 早上集合早(06:30)，記得前一晚先整理好行李！', photo: null, column: 'left' },
+          { id: 2, text: '團費不含：\n洛磯山門票($265)+小費($100)\n維多利亞小費($40)', photo: null, column: 'left' },
+          { id: 3, text: '洛磯山溫差大，記得採『洋蔥式穿法』，帶防風外套與好走鞋！', photo: null, column: 'right' },
+          { id: 4, text: '注意！8/26是凌晨班機，8/25晚上就要去機場 Check-in！', photo: null, column: 'right' }
       ]);
 
       const [accommodations, setAccommodations] = useState(() => loadState('crab_accomm_global', []) || []);
@@ -401,6 +484,11 @@
       const [tempBuyId, setTempBuyId] = useState(null); 
       const [showCalculator, setShowCalculator] = useState(false);
       const [calcTarget, setCalcTarget] = useState(null);
+
+      // Swap States
+      const [showSwapModal, setShowSwapModal] = useState(false);
+      const [swapSourceId, setSwapSourceId] = useState(null);
+      const [swapTargetId, setSwapTargetId] = useState(null);
 
       const [showAIModal, setShowAIModal] = useState(false);
       const [aiType, setAiType] = useState(null); 
@@ -601,6 +689,80 @@
               </div>
           </div>
       );
+
+      // Swap Modal Logic
+      const handleConfirmSwap = () => {
+          if (!swapTargetId || swapTargetId === swapSourceId) return;
+          const newItinerary = [...itinerary];
+          const sIndex = newItinerary.findIndex(d => d.id === swapSourceId);
+          const tIndex = newItinerary.findIndex(d => d.id === swapTargetId);
+          
+          if(sIndex === -1 || tIndex === -1) return;
+
+          const dateA = newItinerary[sIndex].date;
+          const weekdayA = newItinerary[sIndex].weekday;
+          
+          const dateB = newItinerary[tIndex].date;
+          const weekdayB = newItinerary[tIndex].weekday;
+          
+          // 互換行程日期
+          newItinerary[sIndex].date = dateB;
+          newItinerary[sIndex].weekday = weekdayB;
+          
+          newItinerary[tIndex].date = dateA;
+          newItinerary[tIndex].weekday = weekdayA;
+          
+          // 重新按照日期排序
+          newItinerary.sort((a, b) => new Date(a.date) - new Date(b.date));
+          setItinerary(newItinerary);
+
+          // 互換這兩天對應的花費日期，保證帳目不亂
+          const newExpenses = expenses.map(exp => {
+              if (exp.date === dateA) return { ...exp, date: dateB };
+              if (exp.date === dateB) return { ...exp, date: dateA };
+              return exp;
+          });
+          setExpenses(newExpenses);
+
+          setShowSwapModal(false);
+          setSwapSourceId(null);
+          setSwapTargetId(null);
+          alert('行程與花費日期已對調！');
+      };
+
+      const SwapModal = () => {
+          if (!showSwapModal) return null;
+          const sourceDay = itinerary.find(d => d.id === swapSourceId);
+          
+          return (
+              <div className="fixed inset-0 z-[100] flex items-center justify-center modal-backdrop" onClick={() => setShowSwapModal(false)}>
+                  <div className="bg-[#EFECE6] w-[95%] max-w-sm p-6 fade-in card-3d" onClick={e => e.stopPropagation()}>
+                      <div className="flex justify-between items-center mb-4 border-b-2 border-[#2C3E50] pb-2">
+                          <h3 className="font-bold text-lg text-[#00704A] uppercase tracking-widest flex items-center gap-2"><Icons.ArrowRightLeft size={20}/> SWAP DATES</h3>
+                          <button onClick={() => setShowSwapModal(false)}><Icons.X size={24}/></button>
+                      </div>
+                      <div className="mb-4">
+                          <label className="text-xs font-bold text-gray-500 mb-1 block">將這天：</label>
+                          <div className="bg-white p-3 border border-gray-300 rounded font-bold text-[#2C3E50] mb-3">
+                              {formatDate(sourceDay?.date)} ({sourceDay?.weekday}) - {sourceDay?.content || '未命名'}
+                          </div>
+                          <label className="text-xs font-bold text-gray-500 mb-1 block">與這天對調：</label>
+                          <select 
+                              value={swapTargetId || ''} 
+                              onChange={e => setSwapTargetId(Number(e.target.value))} 
+                              className="w-full p-3 input-minimal font-bold text-[#2C3E50]"
+                          >
+                              {itinerary.filter(d => d.id !== swapSourceId).map(d => (
+                                  <option key={d.id} value={d.id}>{formatDate(d.date)} ({d.weekday}) - {d.content || '未命名'}</option>
+                              ))}
+                          </select>
+                      </div>
+                      <p className="text-xs text-red-500 mb-4 font-bold">⚠️ 注意：這兩天的所有行程與記帳都會互換。</p>
+                      <button onClick={handleConfirmSwap} className="w-full btn-3d btn-3d-primary py-3">CONFIRM SWAP</button>
+                  </div>
+              </div>
+          );
+      };
 
       const triggerFileAction = (type, id = null) => { setScanType(type); setTargetDayId(id); fileInputRef.current.click(); };
       const addDay = () => { 
@@ -954,6 +1116,7 @@
         <div className="flex flex-col h-full bg-[#EFECE6] w-full max-w-lg mx-auto shadow-2xl overflow-hidden relative font-sans">
           {showBooklet && <TravelBooklet />}
           {showBuyDateModal && <BuyDateModal />}
+          {showSwapModal && <SwapModal />}
           {showSettingsModal && <SettingsModal />}
           {showExpenseModal && <ExpenseModal />}
           {showAIModal && <AIModal />}
@@ -990,8 +1153,8 @@
                                         <div className="flex items-center gap-3"><span className="font-black text-2xl tracking-wider">{formatDate(day.date)}</span><span className="text-sm font-bold text-[#D4AF37] uppercase">({getWeekday(day.date)})</span></div>
                                         <div className="flex gap-2">
                                             <button onClick={() => openAIPlanner(day.id)} className="p-1.5 bg-[#D4AF37] text-[#2C3E50] border border-[#B8860B] rounded shadow active:translate-y-px"><Icons.Sparkles size={18}/></button>
-                                            <button onClick={() => triggerFileAction('itineraryImport', day.id)} className="p-1.5 bg-white/20 text-white rounded hover:bg-white/30 transition-colors"><Icons.ListPlus size={18}/></button>
                                             <button onClick={() => triggerFileAction('photo', day.id)} className="p-1.5 bg-white/20 text-white rounded hover:bg-white/30 transition-colors"><Icons.Camera size={18}/></button>
+                                            <button onClick={() => { setSwapSourceId(day.id); setSwapTargetId(itinerary.find(d => d.id !== day.id)?.id); setShowSwapModal(true); }} className="p-1.5 bg-[#00704A] text-white border border-[#EFECE6]/50 rounded hover:bg-[#004D33] transition-colors" title="對調日期"><Icons.ArrowRightLeft size={18}/></button>
                                             <button onClick={() => removeDay(day.id)} className="p-1.5 bg-red-500/20 text-red-300 hover:bg-red-500 hover:text-white rounded transition-colors"><Icons.Trash2 size={18}/></button>
                                         </div>
                                     </div>
@@ -1148,3 +1311,4 @@
 </html>
 
 
+```
